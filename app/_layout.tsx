@@ -8,18 +8,24 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  
+  const [fontesCarregadas, erroFontes] = useFonts({
+    PoppinsRegular: require('../assets/fonts/Poppins-Regular.ttf'),
+    PoppinsSemiBold: require('../assets/fonts/Poppins-SemiBold.ttf'),
+    PoppinsBold: require('../assets/fonts/Poppins-Bold.ttf'),
   });
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
+  if (!fontesCarregadas && !erroFontes) {
     return null;
   }
 
+  if (erroFontes) {
+    console.log('Erro ao carregar fontes:', erroFontes);
+  }
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
+        <Stack.Screen name="splash" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
