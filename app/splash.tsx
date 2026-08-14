@@ -1,3 +1,4 @@
+import { Cores } from '@/constants/Colors';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
@@ -25,7 +26,7 @@ export default function Splash() {
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E6091',
+    backgroundColor: Cores.azul,
     alignItems: 'center',
     justifyContent: 'center',
   },
