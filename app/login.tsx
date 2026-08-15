@@ -22,6 +22,7 @@ export default function Login() {
           <TextInput
             style={estilos.input}
             placeholder="E-mail"
+            placeholderTextColor= "#888888"
             keyboardType="email-address"
             autoCapitalize="none"
           />
@@ -29,6 +30,7 @@ export default function Login() {
           <TextInput
             style={estilos.input}
             placeholder="Senha"
+            placeholderTextColor="#888888"
             secureTextEntry
           />
         </View>
@@ -107,6 +109,7 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 15,
     fontFamily: 'PoppinsRegular',
     fontSize: 14,
+    color: Cores.preto,
   },
 
   botao: {
@@ -132,13 +135,13 @@ const estilos = StyleSheet.create({
 
   textoCadastro: {
     fontFamily: 'PoppinsRegular',
-    fontSize: 12,
+    fontSize: 14,
     color: Cores.preto,
   },
 
   linkCadastro: {
     fontFamily: 'PoppinsSemiBold',
-    fontSize: 12,
+    fontSize: 14,
     color: Cores.laranja,
   },
 
