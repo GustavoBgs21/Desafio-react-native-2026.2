@@ -1,29 +1,32 @@
 import { Cores } from '@/constants/Colors';
-import { router } from 'expo-router';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function Login() {
+export default function Cadastro() {
   return (
     <View style={estilos.tela}>
       <View style={estilos.container}>
-
-        {/* Logo */}
         <Image
           source={require('../assets/images/LogoBigz.png')}
           style={estilos.logo}
           resizeMode="contain"
         />
 
-        {/* Títulos */}
-        <Text style={estilos.titulo}>Bem-vindo Surfista!</Text>
-        <Text style={estilos.subtitulo}>Faça login para continuar</Text>
+        <Text style={estilos.titulo}>Crie sua conta!</Text>
+        <Text style={estilos.subtitulo}>
+          Preencha os dados abaixo para continuar
+        </Text>
 
-        {/* Campos */}
         <View style={estilos.formulario}>
           <TextInput
             style={estilos.input}
-            placeholder="E-mail"
+            placeholder="Nome completo"
             placeholderTextColor= "#888888"
+          />
+
+          <TextInput
+            style={estilos.input}
+            placeholder="E-mail"
+            placeholderTextColor="#888888"
             keyboardType="email-address"
             autoCapitalize="none"
           />
@@ -34,31 +37,24 @@ export default function Login() {
             placeholderTextColor="#888888"
             secureTextEntry
           />
+
+          <TextInput
+            style={estilos.input}
+            placeholder="Confirmar senha"
+            placeholderTextColor="#888888"
+            secureTextEntry
+          />
         </View>
 
-        {/* Botão */}
         <TouchableOpacity style={estilos.botao}>
-          <Text style={estilos.textoBotao}>Entrar</Text>
+          <Text style={estilos.textoBotao}>Criar</Text>
         </TouchableOpacity>
 
-        {/* Cadastro */}
-        <View style={estilos.cadastro}>
-          <Text style={estilos.textoCadastro}>
-            Não tem uma conta?{' '}
-          </Text>
-
-          <TouchableOpacity onPress={() => router.push('/cadastro')}>
-            <Text style={estilos.linkCadastro}>Cadastre-se</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Ondas */}
         <Image
           source={require('../assets/images/ondaclara.png')}
           style={estilos.ondas}
           resizeMode="cover"
         />
-
       </View>
     </View>
   );
@@ -85,19 +81,19 @@ const estilos = StyleSheet.create({
 
   titulo: {
     fontFamily: 'PoppinsSemiBold',
-    fontSize: 25,
+    fontSize: 22,
     color: Cores.preto,
   },
 
   subtitulo: {
     fontFamily: 'PoppinsRegular',
-    fontSize: 16,
+    fontSize: 14,
     color: Cores.preto,
   },
 
   formulario: {
     width: '100%',
-    marginTop: 70,
+    marginTop: 20,
     gap: 10,
   },
 
@@ -120,30 +116,13 @@ const estilos = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 25,
+    marginTop: 20,
   },
 
   textoBotao: {
     fontFamily: 'PoppinsSemiBold',
     color: Cores.branco,
     fontSize: 18,
-  },
-
-  cadastro: {
-    flexDirection: 'row',
-    marginTop: 10,
-  },
-
-  textoCadastro: {
-    fontFamily: 'PoppinsSemiBold',
-    fontSize: 14,
-    color: Cores.preto,
-  },
-
-  linkCadastro: {
-    fontFamily: 'PoppinsBold',
-    fontSize: 14,
-    color: Cores.laranja,
   },
 
   ondas: {
