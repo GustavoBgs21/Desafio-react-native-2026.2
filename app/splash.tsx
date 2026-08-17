@@ -7,7 +7,7 @@ export default function Splash() {
 
   useEffect(() => {
     const tempo = setTimeout(() => {
-      router.replace('/login');
+      router.replace('/gerenciamento');
     }, 3000);
 
     return () => clearTimeout(tempo);
