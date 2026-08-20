@@ -1,13 +1,13 @@
 import { Cores } from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
-  Image,
-  Modal,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    Image,
+    Modal,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
   fechar: () => void;
 };
 
-export default function ModalCriarProduto({
+export default function ModalEditarProduto({
   visivel,
   fechar,
 }: Props) {
@@ -28,6 +28,7 @@ export default function ModalCriarProduto({
     >
       <View style={estilos.fundoModal}>
         <View style={estilos.modal}>
+
           {/* Cabeçalho */}
           <View style={estilos.cabecalho}>
             <TouchableOpacity onPress={fechar}>
@@ -39,23 +40,27 @@ export default function ModalCriarProduto({
             </TouchableOpacity>
 
             <Text style={estilos.titulo}>
-              Novo Produto
+              Editar Produto
             </Text>
 
             <View style={estilos.espacoCabecalho} />
           </View>
 
-          {/* Upload da imagem */}
+          {/* Imagem atual do produto */}
           <TouchableOpacity style={estilos.areaImagem}>
-            <Ionicons
-              name="camera-outline"
-              size={30}
-              color={Cores.azul}
+            <Image
+              source={require('../../assets/images/quilha.jpg')}
+              style={estilos.imagemProduto}
+              resizeMode="contain"
             />
 
-            <Text style={estilos.textoImagem}>
-              Clique para fazer upload
-            </Text>
+            <View style={estilos.camera}>
+              <Ionicons
+                name="camera-outline"
+                size={24}
+                color={Cores.azul}
+              />
+            </View>
           </TouchableOpacity>
 
           {/* Nome */}
@@ -65,7 +70,7 @@ export default function ModalCriarProduto({
 
           <TextInput
             style={estilos.input}
-            placeholder="EX: Quilha Azul"
+            defaultValue="Quilha Azul"
             placeholderTextColor="#999999"
           />
 
@@ -76,7 +81,7 @@ export default function ModalCriarProduto({
 
           <TouchableOpacity style={estilos.inputCategoria}>
             <Text style={estilos.textoCategoria}>
-              Selecione a Categoria
+              Quilha
             </Text>
 
             <Ionicons
@@ -95,8 +100,7 @@ export default function ModalCriarProduto({
 
               <TextInput
                 style={estilos.inputPequeno}
-                placeholder="0,00"
-                placeholderTextColor="#999999"
+                defaultValue="599,99"
                 keyboardType="numeric"
               />
             </View>
@@ -108,8 +112,7 @@ export default function ModalCriarProduto({
 
               <TextInput
                 style={estilos.inputPequeno}
-                placeholder="0"
-                placeholderTextColor="#999999"
+                defaultValue="21"
                 keyboardType="numeric"
               />
             </View>
@@ -122,16 +125,15 @@ export default function ModalCriarProduto({
 
           <TextInput
             style={estilos.descricao}
-            placeholder="Descreva o Produto..."
-            placeholderTextColor="#999999"
+            defaultValue="Projetada para um equilíbrio de velocidade, fluxo e resposta."
             multiline
             textAlignVertical="top"
           />
 
-          {/* Botão */}
-          <TouchableOpacity style={estilos.botaoAdicionar}>
+          {/* Salvar */}
+          <TouchableOpacity style={estilos.botaoSalvar}>
             <Text style={estilos.textoBotao}>
-              Adicionar Produto
+              Salvar Alterações
             </Text>
           </TouchableOpacity>
 
@@ -141,6 +143,7 @@ export default function ModalCriarProduto({
             style={estilos.onda}
             resizeMode="cover"
           />
+
         </View>
       </View>
     </Modal>
@@ -193,13 +196,15 @@ const estilos = StyleSheet.create({
     marginBottom: 10,
   },
 
-  textoImagem: {
-    fontFamily: 'PoppinsRegular',
-    fontSize: 11,
-    color: Cores.azul,
-    textAlign: 'center',
-    width: 170,
-    marginTop: 5,
+  imagemProduto: {
+    width: '75%',
+    height: '100%',
+  },
+
+  camera: {
+    position: 'absolute',
+    right: 8,
+    bottom: 8,
   },
 
   label: {
@@ -236,7 +241,7 @@ const estilos = StyleSheet.create({
   textoCategoria: {
     fontFamily: 'PoppinsRegular',
     fontSize: 12,
-    color: '#999999',
+    color: Cores.preto,
   },
 
   linha: {
@@ -273,7 +278,7 @@ const estilos = StyleSheet.create({
     marginBottom: 10,
   },
 
-  botaoAdicionar: {
+  botaoSalvar: {
     height: 44,
     backgroundColor: Cores.laranja,
     borderRadius: 9,

@@ -1,21 +1,23 @@
 import ModalCriarProduto from '@/components/GerenciamentoModais/ModalCriarProduto';
+import ModalEditarProduto from '@/components/GerenciamentoModais/ModalEditarProduto';
 import ModalVisualizarProduto from '@/components/GerenciamentoModais/ModalVisualizarProduto';
 import { Cores } from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useState } from 'react';
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 export default function Gerenciamento() {
   const [modalVisualizar, setModalVisualizar] = useState(false);
   const [modalCriar, setModalCriar] = useState(false);
+  const [modalEditar, setModalEditar] = useState(false);
 
   return (
     <View style={estilos.tela}>
@@ -94,7 +96,10 @@ export default function Gerenciamento() {
           </View>
 
           <View style={estilos.acoes}>
-            <TouchableOpacity style={estilos.botaoEditar}>
+            <TouchableOpacity
+              style={estilos.botaoEditar}
+              onPress={() => setModalEditar(true)}
+            >
               <Ionicons
                 name="pencil-outline"
                 size={18}
@@ -138,7 +143,10 @@ export default function Gerenciamento() {
           </View>
 
           <View style={estilos.acoes}>
-            <TouchableOpacity style={estilos.botaoEditar}>
+            <TouchableOpacity
+              style={estilos.botaoEditar}
+              onPress={() => setModalEditar(true)}
+            >
               <Ionicons
                 name="pencil-outline"
                 size={18}
@@ -182,7 +190,10 @@ export default function Gerenciamento() {
           </View>
 
           <View style={estilos.acoes}>
-            <TouchableOpacity style={estilos.botaoEditar}>
+            <TouchableOpacity
+              style={estilos.botaoEditar}
+              onPress={() => setModalEditar(true)}
+            >
               <Ionicons
                 name="pencil-outline"
                 size={18}
@@ -226,7 +237,10 @@ export default function Gerenciamento() {
           </View>
 
           <View style={estilos.acoes}>
-            <TouchableOpacity style={estilos.botaoEditar}>
+            <TouchableOpacity
+              style={estilos.botaoEditar}
+              onPress={() => setModalEditar(true)}
+            >
               <Ionicons
                 name="pencil-outline"
                 size={18}
@@ -255,6 +269,11 @@ export default function Gerenciamento() {
       <ModalCriarProduto
         visivel={modalCriar}
         fechar={() => setModalCriar(false)}
+      />
+
+      <ModalEditarProduto
+        visivel={modalEditar}
+        fechar={() => setModalEditar(false)}
       />
     </View>
   );
