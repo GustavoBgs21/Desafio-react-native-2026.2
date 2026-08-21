@@ -1,5 +1,6 @@
 import ModalCriarProduto from '@/components/GerenciamentoModais/ModalCriarProduto';
 import ModalEditarProduto from '@/components/GerenciamentoModais/ModalEditarProduto';
+import ModalExcluirProduto from '@/components/GerenciamentoModais/ModalExcluirProduto';
 import ModalVisualizarProduto from '@/components/GerenciamentoModais/ModalVisualizarProduto';
 import { Cores } from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -18,6 +19,7 @@ export default function Gerenciamento() {
   const [modalVisualizar, setModalVisualizar] = useState(false);
   const [modalCriar, setModalCriar] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
+  const [modalExcluir, setModalExcluir] = useState(false);
 
   return (
     <View style={estilos.tela}>
@@ -107,7 +109,10 @@ export default function Gerenciamento() {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={estilos.botaoExcluir}>
+            <TouchableOpacity
+              style={estilos.botaoExcluir}
+              onPress={() => setModalExcluir(true)}
+            >
               <Ionicons
                 name="trash-outline"
                 size={18}
@@ -154,7 +159,10 @@ export default function Gerenciamento() {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={estilos.botaoExcluir}>
+            <TouchableOpacity
+              style={estilos.botaoExcluir}
+              onPress={() => setModalExcluir(true)}
+            >
               <Ionicons
                 name="trash-outline"
                 size={18}
@@ -201,7 +209,10 @@ export default function Gerenciamento() {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={estilos.botaoExcluir}>
+            <TouchableOpacity
+              style={estilos.botaoExcluir}
+              onPress={() => setModalExcluir(true)}
+            >
               <Ionicons
                 name="trash-outline"
                 size={18}
@@ -248,7 +259,10 @@ export default function Gerenciamento() {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={estilos.botaoExcluir}>
+            <TouchableOpacity
+              style={estilos.botaoExcluir}
+              onPress={() => setModalExcluir(true)}
+            >
               <Ionicons
                 name="trash-outline"
                 size={18}
@@ -275,6 +289,12 @@ export default function Gerenciamento() {
         visivel={modalEditar}
         fechar={() => setModalEditar(false)}
       />
+
+      <ModalExcluirProduto
+        visivel={modalExcluir}
+        fechar={() => setModalExcluir(false)}
+      />
+    
     </View>
   );
 }
