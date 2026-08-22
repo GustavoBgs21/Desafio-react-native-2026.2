@@ -1,9 +1,9 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Cores } from '@/constants/Colors';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Tabs } from 'expo-router';
+import React from 'react';
 
 export default function TabLayout() {
   return (
@@ -33,6 +33,20 @@ export default function TabLayout() {
             <IconSymbol
               size={28}
               name="paperplane.fill"
+              color={color}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="contato"
+        options={{
+          title: 'Contato',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="headset-outline"
+              size={size}
               color={color}
             />
           ),
